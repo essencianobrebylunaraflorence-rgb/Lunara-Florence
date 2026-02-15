@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List | Lunara Florence</title>
+    <title>Minha Lista de Tarefas | Lunara Florence</title>
     <style>
         :root {
             /* Light Theme Colors */
@@ -872,7 +872,7 @@
         // Task Functions
         function addTask(text) {
             const newTask = {
-                id: Date.now() + Math.random(), // Add randomness to prevent collisions
+                id: Date.now() + Math.floor(Math.random() * 10000), // Integer ID to prevent collisions
                 text: text.trim(),
                 completed: false,
                 createdAt: new Date().toISOString()
