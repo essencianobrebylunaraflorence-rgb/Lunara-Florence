@@ -573,6 +573,17 @@
             border-left-color: var(--danger-red);
         }
 
+        @keyframes toastSlideOut {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+
         .toast-icon {
             font-size: 1.5rem;
         }
@@ -861,7 +872,7 @@
         // Task Functions
         function addTask(text) {
             const newTask = {
-                id: Date.now(),
+                id: Date.now() + Math.random(), // Add randomness to prevent collisions
                 text: text.trim(),
                 completed: false,
                 createdAt: new Date().toISOString()
@@ -1047,7 +1058,7 @@
             toastContainer.appendChild(toast);
             
             setTimeout(() => {
-                toast.style.animation = 'toastSlideIn 0.3s ease reverse';
+                toast.style.animation = 'toastSlideOut 0.3s ease forwards';
                 setTimeout(() => toast.remove(), 300);
             }, 3000);
         }
